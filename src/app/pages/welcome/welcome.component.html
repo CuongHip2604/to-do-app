@@ -1,0 +1,28 @@
+<div class="todo-list">
+  <nz-card>
+    <h1>TO DO APP</h1>
+    <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
+      <input type="text" nz-input placeholder="input add task" [(ngModel)]="inputTask" />
+    </nz-input-group>
+    <ng-template #suffixButton>
+      <!-- <button nz-button nzType="primary" nzSize="large" nzShape="circle"><i nz-icon nzType="plus" nzTheme="outline"></i></button> -->
+      <button nz-button nzType="primary" nzSize="large" nzSearch (click)="addTask()" >ADD</button>
+    </ng-template>
+    <div class="task" *ngFor="let item of tasks$ | async" >
+      <div class="task-item">
+        <nz-switch [(ngModel)]="isChecked" [nzCheckedChildren]="checkedTemplate" [nzUnCheckedChildren]="unCheckedTemplate" (ngModelChange)="checked()" ></nz-switch>
+        <ng-template #checkedTemplate><i nz-icon nzType="check"></i></ng-template>
+        <ng-template #unCheckedTemplate><i nz-icon nzType="close"></i></ng-template>
+        <span [class.disabled]="isChecked" class="task-name">{{ item.taskName }}</span>
+        <div *ngIf="!isChecked" class="actions">
+          <i nz-icon nzType="edit" nzTheme="twotone" [nzTwotoneColor]="'#1890ff'"></i>
+          <i nz-icon nzType="delete" nzTheme="twotone" [nzTwotoneColor]="'#ff4d4f'"></i>
+        </div>
+        <div *ngIf="isChecked" class="actions">
+          <i nz-icon style="cursor: auto;" nzType="edit" nzTheme="twotone" [nzTwotoneColor]="'#bfbfbf'"></i>
+          <i nz-icon style="cursor: auto;" nzType="delete" nzTheme="twotone" [nzTwotoneColor]="'#bfbfbf'"></i>
+        </div>
+      </div>
+    </div>
+  </nz-card>
+</div>

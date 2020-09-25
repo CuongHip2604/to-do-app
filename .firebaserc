@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "to-do-app-273a0": {
+      "hosting": {
+        "to-do-list": [
+          "to-do-app-273a0"
+        ]
+      }
+    }
+  }
+}
