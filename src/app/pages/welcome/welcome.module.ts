@@ -9,7 +9,7 @@ import { WelcomeComponent } from './welcome.component';
 
 
 @NgModule({
-  imports: [WelcomeRoutingModule, NzCardModule, NzInputModule, NzButtonModule, NzIconModule, NzSwitchModule, FormsModule, CommonModule ],
+  imports: [WelcomeRoutingModule, NzCardModule, NzInputModule, NzButtonModule, NzIconModule, NzSwitchModule, FormsModule, CommonModule],
   declarations: [WelcomeComponent],
   exports: [WelcomeComponent]
 })

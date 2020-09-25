@@ -22,5 +22,5 @@ export class TaskEffects {
   constructor(
     private actions$: Actions,
     private taskService: TaskService
-  ) {}
+  ) { }
 }
