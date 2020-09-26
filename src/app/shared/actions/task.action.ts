@@ -13,7 +13,7 @@ export const getTasksSuccess = createAction(GET_TASKS_SUCCESS, props<{ task: Tas
 export const addTask = createAction(ADD_TASK, props<{ task: Task }>());
 export const updateTask = createAction(UPDATE_TASK, props<{ task: Task }>());
 export const removeTask = createAction(REMOVE_TASK, props<{ id: string }>());
-export const changeChecked = createAction(CHANGE_CHECKED, props<{ isActive: boolean, idx: number }>());
+export const changeChecked = createAction(CHANGE_CHECKED, props<{ task: Task }>());
 
 // tslint:disable-next-line: max-line-length
 export type TaskActions =

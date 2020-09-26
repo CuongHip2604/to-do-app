@@ -24,15 +24,23 @@ export class WelcomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.taskService.getTasks$().subscribe(rs => {
-      this.store.dispatch(taskActions.getTasksSuccess({ task: rs }))
-    })
+    //load task
+    this.store.dispatch(taskActions.getTasks())
+
+    // Store Selctor
     this.store.pipe(select(itemsSelector)).subscribe(rs => {
       this.tasks$ = rs
     })
   }
   checked(index) {
-    this.store.dispatch(taskActions.changeChecked({ isActive: true, idx: index }))
+    this.index = index
+    const item = this.tasks$[this.index]
+    const data: Task = {
+      id: item.id,
+      isActive: true,
+      taskName: item.taskName
+    };
+    this.store.dispatch(taskActions.changeChecked({ task: data }))
   }
 
   addTask() {
@@ -50,6 +58,11 @@ export class WelcomeComponent implements OnInit {
       taskName: this.inputTask
     }
     this.store.dispatch(taskActions.updateTask({ task: data }));
+  }
+  deleteTask(idx) {
+    this.index = idx
+    const id = this.tasks$[this.index].id
+    this.store.dispatch(taskActions.removeTask({ id }));
   }
   editTask(idx?) {
     this.index = idx

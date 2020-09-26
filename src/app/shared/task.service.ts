@@ -15,7 +15,8 @@ export class TaskService {
     return of<Task[]>(Tasks);
   }
 
-//   addTask(data) {
-//     return this.afs.
-//   }
+  addTask(data) {
+    const addNew = Tasks.push(data)
+    return of(addNew);
+  }
 }

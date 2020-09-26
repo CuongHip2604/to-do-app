@@ -30,7 +30,8 @@
         <span [class.disabled]="item.isActive" class="task-name">{{ item.taskName }}</span>
         <div *ngIf="!item.isActive" class="actions">
           <i nz-icon #edit nzType="edit" nzTheme="twotone" [nzTwotoneColor]="'#1890ff'" (click)="editTask(idx)"></i>
-          <i nz-icon #delete nzType="delete" nzTheme="twotone" [nzTwotoneColor]="'#ff4d4f'"></i>
+          <i nz-icon #delete nzType="delete" nzTheme="twotone" [nzTwotoneColor]="'#ff4d4f'"
+            (click)="deleteTask(idx)"></i>
         </div>
         <div *ngIf="item.isActive" class="actions">
           <i nz-icon style="cursor: auto;" nzType="edit" nzTheme="twotone" [nzTwotoneColor]="'#bfbfbf'"></i>
